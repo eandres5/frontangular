@@ -1,0 +1,19 @@
+<h1>Articulo</h1>
+<div class="row">
+    <div class="col-4">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombres" [(ngModel)]="articulo.nombre">
+        </mat-form-field>
+    </div>
+    <div class="col-4">
+        <mat-form-field class="example-full-width">
+            <mat-label>Precio Unitario</mat-label>
+            <input matInput placeholder="Apellidos" [(ngModel)]="articulo.precioUnitario">
+        </mat-form-field>
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button type="button" mat-dialog-close>Cancel</button>
+    <button type="button" cdkFocusInitial (click)="saveArticulo()">Guardar</button>
+</mat-dialog-actions>

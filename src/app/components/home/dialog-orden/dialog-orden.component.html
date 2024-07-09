@@ -1,0 +1,32 @@
+<h1>Cliente</h1>
+<div class="row">
+    <div class="col-4">        
+        <mat-form-field>
+            <mat-label>Cliente</mat-label>
+            <mat-select>
+                <mat-option value="Seleccione">...</mat-option>
+                <mat-option *ngFor="let cliente of listaClientes" [value]="cliente.id">{{ cliente.nombres }} {{ cliente.apellidos }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="col-4">
+        <div class="subtitulo">
+            Agregar Articulo <svg xmlns="http://www.w3.org/2000/svg" (click)="addArticulo()"
+                style="cursor: pointer;" height="24px" viewBox="0 0 24 24" width="24px" fill="#5e6b69">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+        </div>
+    </div>
+    <div class="col-4">
+        
+    </div>
+    <div class="col-4">
+        
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button type="button" mat-dialog-close>Cancel</button>
+    <button type="button" cdkFocusInitial (click)="saveOrden()">Guardar</button>
+</mat-dialog-actions>

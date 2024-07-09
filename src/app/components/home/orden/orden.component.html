@@ -1,0 +1,43 @@
+<div>
+    <p-button icon="pi pi-file-pdf" styleClass="p-button-rounded p-button-success" (click)="newOrden()"></p-button>
+</div>
+<div class="example-container mat-elevation-z8">
+    <mat-table [dataSource]="listOrdenes" matSort>
+
+        <ng-container matColumnDef="cliente">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> nombre </mat-header-cell>
+            <mat-cell *matCellDef="let orden" data-label="{{msg.lbl_tipologia}}"> {{orden.cliente}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> codigo </mat-header-cell>
+            <mat-cell *matCellDef="let orden" data-label="msg.lbl_solicitante"> {{orden.codigo}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="totalArticulos">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Precio Unitario </mat-header-cell>
+            <mat-cell *matCellDef="let orden" data-label="msg.lbl_monto"> {{orden.totalArticulos}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> {{msg.lbl_acciones}} </mat-header-cell>
+            <mat-cell *matCellDef="let solicitud" data-label="msg.lbl_acciones">
+                <!-- <p-button class="btn_table" icon="pi pi-bookmark btn_table" styleClass="p-button-rounded p-button-secondary"></p-button> -->
+                <!-- <div class="card flex flex-wrap gap-3 justify-content-center">
+                    <p-button icon="pi pi-file-pdf" styleClass="p-button-rounded p-button-danger" (click)="downloadPDF(solicitud)" *ngIf="solicitud.estado != 'Pagado'"></p-button>
+                </div> -->
+            </mat-cell>    
+            </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let solicitud; columns: displayedColumns;">
+        </mat-row>
+    </mat-table>
+    <mat-paginator 
+        [length]="totalElements"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="pageIndex"
+        (page)="onPageChange($event)"
+        showFirstLastButtons
+    ></mat-paginator>
+</div>
